@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MunTea.Models.ThucDon>
+
+@{
+    ViewBag.Title = "HienDanhSach";
+    Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
+}
+
+<h2 style="text-align:center;color:beige;">Danh sách thực đơn</h2>
+
+<p>
+    @Html.ActionLink("Thêm thực đơn", "Them", "ThucDon", new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr style="color:beige;">
+        <th>
+            Mã thực đơn
+        </th>
+        <th>
+            Tên thực đơn
+        </th>
+        <th>
+            Size
+        </th>
+        <th>
+            Giá tiền
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Loại thực đơn
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="color:beige;">
+            <td>
+                @Html.DisplayFor(modelItem => item.MaThucDon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenThucDon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaTien)
+            </td>
+            <td>
+                <img src="~/HinhAnh/ThucDon/@item.HinhAnh" style="width:auto; height:100px;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiThucDon.TenLoaiThucDon)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Sua", "ThucDon", new { mathucdon = item.MaThucDon }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Chi tiết", "ChiTiet", "ThucDon", new { mathucdon = item.MaThucDon }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Xóa", "Xoa", "ThucDon", new { mathucdon = item.MaThucDon }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

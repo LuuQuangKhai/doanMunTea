@@ -1,0 +1,57 @@
+﻿@model MunTea.Models.ThucDon
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
+}
+
+
+<h2 style="color:beige;text-align:center;">Chi tiết thực đơn</h2>
+
+<form>
+    <h4 style="color:beige;text-align:center;">Thực đơn</h4>
+    <div class="form-group">
+        <label style="color:beige">Mã thực đơn</label>
+        <a class="form-control">
+            @Html.DisplayFor(model => model.MaThucDon)
+        </a>
+    </div>
+    <div class="form-group">
+        <label style="color:beige">Tên thực đơn</label>
+        <a class="form-control">
+            @Html.DisplayFor(model => model.TenThucDon)
+        </a>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-6 form-group">
+            <label style="color:beige">Size</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.Size)
+            </a>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label style="color:beige">Giá tiền</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.GiaTien)
+            </a>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-3 form-group">
+            <label style="color:beige">Loại thực đơn</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.LoaiThucDon.TenLoaiThucDon)
+            </a>
+        </div>
+        <div class="form-group">
+            <label style="color:beige">Hình ảnh</label>
+            <a class="form-control">
+                <img class="form-control" src="/HinhAnh/ThucDon/@Model.HinhAnh" style="width:auto;height:200px">
+            </a>
+        </div>
+    </div>
+</form>
+<p>
+    @Html.ActionLink("Sửa", "Sua", "ThucDon", new { mathucdon = @Model.MaThucDon }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Trở về", "HienDanhSach", "ThucDon", new { @class = "btn btn-primary" })
+</p>

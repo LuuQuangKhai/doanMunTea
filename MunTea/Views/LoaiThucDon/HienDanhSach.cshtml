@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MunTea.Models.LoaiThucDon>
+
+@{
+    ViewBag.Title = "HienDanhSach";
+    Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
+}
+
+<h2 style="text-align:center;color:beige;">Danh sách loại thực đơn</h2>
+
+<p>
+    @Html.ActionLink("Thêm loại thực đơn", "Them", "LoaiThucDon", new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr style="color:beige;">
+        <th>
+            Mã loại thực đơn
+        </th>
+        <th>
+            Tên loại thực đơn
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="color:beige;">
+            <td>
+                @Html.DisplayFor(modelItem => item.MaLoaiThucDon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLoaiThucDon)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Sua", "LoaiThucDon", new { maloaithucdon = item.MaLoaiThucDon }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Chi tiết", "ChiTiet", "LoaiThucDon", new { maloaithucdon = item.MaLoaiThucDon }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Xóa", "Xoa", new { maloaithucdon = item.MaLoaiThucDon }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

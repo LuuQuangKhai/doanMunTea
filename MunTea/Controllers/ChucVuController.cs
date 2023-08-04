@@ -14,11 +14,6 @@ namespace MunTea.Controllers
 
         dbMunTeaLinQDataContext data = new dbMunTeaLinQDataContext();
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public ActionResult HienDanhSach()
         {
             List<ChucVu> ds = data.ChucVus.ToList();

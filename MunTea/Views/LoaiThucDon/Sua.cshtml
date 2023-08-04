@@ -1,0 +1,35 @@
+﻿@model MunTea.Models.LoaiThucDon
+
+@{
+    ViewBag.Title = "Sua";
+    Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
+}
+
+<h2 style="text-align:center;color:beige;">Sửa loại thực đơn</h2>
+
+@using (Html.BeginForm())
+{
+    <form>
+        <h4 style="color:beige">Loại thực đơn</h4>
+
+        <div class="form-group" style="color:beige">
+            <label for="mymaloaithucdon" style="color:beige">Mã chức vụ</label>
+            <input type="number" class="form-control" value="@Model.MaLoaiThucDon" name="MaLoaiThucDon" id="mymaloaithucdon" placeholder="Mã loại thực đơn">
+        </div>
+        <div class="form-group" style="color:beige">
+            <label for="mytenloaithucdon" style="color:beige">Tên chức vụ</label>
+            <input type="text" class="form-control" value="@Model.TenLoaiThucDon" name="TenLoaiThucDon" id="mytenloaithucdon" placeholder="Tên loại thực đơn">
+        </div>
+        @if (ViewBag.thongbao != null)
+        {
+            <p style="color:red">*@ViewBag.thongbao</p>
+        }
+        <p>
+            <input type="submit" value="Lưu" class="btn btn-success" />
+        </p>
+    </form>
+}
+
+<div>
+    @Html.ActionLink("Trở về", "HienDanhSach", "LoaiThucDon", new { @class = "btn btn-primary" })
+</div>

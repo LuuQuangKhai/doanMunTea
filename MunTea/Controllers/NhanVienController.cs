@@ -14,11 +14,6 @@ namespace MunTea.Controllers
         // GET: /NhanVien/
         dbMunTeaLinQDataContext data = new dbMunTeaLinQDataContext();
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public ActionResult HienDanhSach()
         {
             List<NhanVien> ds = data.NhanViens.ToList();
@@ -95,7 +90,6 @@ namespace MunTea.Controllers
         {
             NhanVien nhanvien = data.NhanViens.FirstOrDefault(t => t.MaNhanVien == manhanvien);
             ViewBag.machucvu = new SelectList(data.ChucVus.ToList().OrderBy(n => n.TenChucVu), "MaChucVu", "TenChucVu");
-            ViewBag.chucvuchon = nhanvien.MaChucVu;
             return View(nhanvien);
         }
 
@@ -104,7 +98,6 @@ namespace MunTea.Controllers
         {
             ViewBag.machucvu = new SelectList(data.ChucVus.ToList().OrderBy(n => n.TenChucVu), "MaChucVu", "TenChucVu");
             NhanVien tim = data.NhanViens.FirstOrDefault(t => t.MaNhanVien == nhanvien.MaNhanVien);
-            ViewBag.chucvuchon = tim.MaChucVu;
             if (tim == null)
             {
                 ViewBag.thongbao = "Mã nhân viên không tồn tại!";

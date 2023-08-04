@@ -111,7 +111,9 @@
   <ItemGroup>
     <Compile Include="Controllers\ChucVuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoaiThucDonController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
+    <Compile Include="Controllers\ThucDonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -152,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="HinhAnh\ThucDon\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -202,6 +205,16 @@
     <Content Include="Views\NhanVien\Xoa.cshtml" />
     <Content Include="Views\NhanVien\ChiTiet.cshtml" />
     <Content Include="Views\NhanVien\Sua.cshtml" />
+    <Content Include="Views\LoaiThucDon\HienDanhSach.cshtml" />
+    <Content Include="Views\LoaiThucDon\Them.cshtml" />
+    <Content Include="Views\LoaiThucDon\Xoa.cshtml" />
+    <Content Include="Views\LoaiThucDon\Sua.cshtml" />
+    <Content Include="Views\LoaiThucDon\ChiTiet.cshtml" />
+    <Content Include="Views\ThucDon\HienDanhSach.cshtml" />
+    <Content Include="Views\ThucDon\Them.cshtml" />
+    <Content Include="Views\ThucDon\Xoa.cshtml" />
+    <Content Include="Views\ThucDon\ChiTiet.cshtml" />
+    <Content Include="Views\ThucDon\Sua.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

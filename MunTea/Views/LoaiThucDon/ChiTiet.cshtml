@@ -1,0 +1,29 @@
+﻿@model MunTea.Models.LoaiThucDon
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
+}
+<h2 style="color:beige;text-align:center;">Chi tiết loại thực đơn</h2>
+
+<form>
+    <h4 style="color:beige;text-align:center;">Loại thực đơn</h4>
+    <div class="form-row">
+        <div class="col-sm-6 form-group">
+            <label style="color:beige">Mã loại thực đơn</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.MaLoaiThucDon)
+            </a>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label style="color:beige"> Tên loại thực đơn</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.TenLoaiThucDon)
+            </a>
+        </div>
+    </div>
+</form>
+<p>
+    @Html.ActionLink("Sửa", "Sua", "LoaiThucDon", new { maloaithucdon = @Model.MaLoaiThucDon }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Trở về", "HienDanhSach", "LoaiThucDon", new { @class = "btn btn-primary" })
+</p>
