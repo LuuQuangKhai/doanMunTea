@@ -1230,9 +1230,13 @@ namespace MunTea.Models
 		
 		private string _MatKhau;
 		
+		private string _TenNhanVien;
+		
 		private string _SDT;
 		
 		private string _GioiTinh;
+		
+		private string _NoiSinh;
 		
 		private string _HinhAnh;
 		
@@ -1252,10 +1256,14 @@ namespace MunTea.Models
     partial void OnMaNhanVienChanged();
     partial void OnMatKhauChanging(string value);
     partial void OnMatKhauChanged();
+    partial void OnTenNhanVienChanging(string value);
+    partial void OnTenNhanVienChanged();
     partial void OnSDTChanging(string value);
     partial void OnSDTChanged();
     partial void OnGioiTinhChanging(string value);
     partial void OnGioiTinhChanged();
+    partial void OnNoiSinhChanging(string value);
+    partial void OnNoiSinhChanged();
     partial void OnHinhAnhChanging(string value);
     partial void OnHinhAnhChanged();
     partial void OnMaChucVuChanging(int value);
@@ -1310,6 +1318,26 @@ namespace MunTea.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNhanVien", DbType="NVarChar(100)")]
+		public string TenNhanVien
+		{
+			get
+			{
+				return this._TenNhanVien;
+			}
+			set
+			{
+				if ((this._TenNhanVien != value))
+				{
+					this.OnTenNhanVienChanging(value);
+					this.SendPropertyChanging();
+					this._TenNhanVien = value;
+					this.SendPropertyChanged("TenNhanVien");
+					this.OnTenNhanVienChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="NVarChar(10)")]
 		public string SDT
 		{
@@ -1346,6 +1374,26 @@ namespace MunTea.Models
 					this._GioiTinh = value;
 					this.SendPropertyChanged("GioiTinh");
 					this.OnGioiTinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoiSinh", DbType="NVarChar(100)")]
+		public string NoiSinh
+		{
+			get
+			{
+				return this._NoiSinh;
+			}
+			set
+			{
+				if ((this._NoiSinh != value))
+				{
+					this.OnNoiSinhChanging(value);
+					this.SendPropertyChanging();
+					this._NoiSinh = value;
+					this.SendPropertyChanged("NoiSinh");
+					this.OnNoiSinhChanged();
 				}
 			}
 		}

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MunTea.Models.NhanVien>
+
+@{
+    ViewBag.Title = "HienDanhSach";
+    Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
+}
+
+<h2 style="text-align:center;color:beige;">Danh sách nhân viên</h2>
+
+<p>
+    @Html.ActionLink("Thêm nhân viên", "Them", "NhanVien", new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr style="color:beige;">
+        <th>
+            Mã nhân viên
+        </th>
+        <th>
+            Mật khẩu
+        </th>
+        <th>
+            Tên nhân viên
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Nơi sinh
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Tên chức vụ
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+{
+    <tr style="color:beige;">
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNhanVien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatKhau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNhanVien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiSinh)
+        </td>
+        <td>
+            <img src="~/HinhAnh/NhanVien/@item.HinhAnh" style="width:auto; height:100px;" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChucVu.TenChucVu)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Sua", "NhanVien", new { machucvu = item.MaChucVu }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Chi tiết", "ChiTiet", "NhanVien", new { machucvu = item.MaChucVu }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Xóa", "Xoa", "NhanVien", new { machucvu = item.MaChucVu }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

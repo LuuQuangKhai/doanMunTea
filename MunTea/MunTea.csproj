@@ -139,6 +139,8 @@
     <Content Include="bootstrap\bootstrap\js\jquery-3.3.1.min.js" />
     <Content Include="Global.asax" />
     <Content Include="HinhAnh\LogoMUNTEA.png" />
+    <Content Include="HinhAnh\NhanVien\AnhTheNam.jpg" />
+    <Content Include="HinhAnh\NhanVien\AnhTheNu.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -180,6 +182,11 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\ChucVu\Xoa.cshtml" />
+    <Content Include="Views\ChucVu\Sua.cshtml" />
+    <Content Include="Views\ChucVu\ChiTiet.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\dbMunTeaLinQ.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>dbMunTeaLinQ.designer.cs</LastGenOutput>
@@ -190,9 +197,8 @@
     <None Include="Models\dbMunTeaLinQ.dbml.layout">
       <DependentUpon>dbMunTeaLinQ.dbml</DependentUpon>
     </None>
-    <Content Include="Views\ChucVu\Xoa.cshtml" />
-    <Content Include="Views\ChucVu\Sua.cshtml" />
-    <Content Include="Views\ChucVu\ChiTiet.cshtml" />
+    <Content Include="Views\NhanVien\HienDanhSach.cshtml" />
+    <Content Include="Views\NhanVien\Them.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

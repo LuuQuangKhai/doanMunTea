@@ -59,8 +59,10 @@
     <Type Name="NhanVien">
       <Column Name="MaNhanVien" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="MatKhau" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TenNhanVien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="SDT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NoiSinh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="MaChucVu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="NhanVien_PhieuNhapHang" Member="PhieuNhapHangs" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="PhieuNhapHang" />
