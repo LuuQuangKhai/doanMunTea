@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/bootstrap/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <nav class="nav navbar-expand-sm" style="background-color: #F4F5F1;">
+            <a class="navbar-brand" href="#">
+                <img src="~/HinhAnh/LogoMUNTEA.png" style="width:150px;height:150px; margin:0px 20px;" />
+            </a>
+            <div class="container-fluid" style="margin:20px 0px">
+                <ul class="navbar-nav" style="text-align:left;">
+                    <li class="nav-item col-3">
+                        <a style="color: #3E4063;" class="nav-link" href="/ChucVu/HienDanhSach"><h3><b>Quản lý chức vụ</b></h3></a>
+                    </li>
+                    <li class="nav-item col-3">
+                        <a style="color: #3E4063;" class="nav-link" href="#"><h3><b>Quản lý loại thực đơn</b></h3></a>
+                    </li>
+                    <li class="nav-item col-3">
+                        <a style="color: #3E4063;" class="nav-link" href="#"><h3><b>Quản lý kho hàng</b></h3></a>
+                    </li>
+                    <li class="nav-item col-3">
+                        <a style="color: #3E4063;" class="nav-link" href="#"><h3><b>Quản lý khách hàng</b></h3></a>
+                    </li>
+                </ul>
+                    <ul class="navbar-nav" style="text-align:left;">
+                        <li class="nav-item col-3">
+                            <a style="color: #3E4063;" class="nav-link" href="#"><h3><b>Quản lý nhân viên</b></h3></a>
+                        </li>
+                        <li class="nav-item col-3">
+                            <a style="color: #3E4063;" class="nav-link" href="#"><h3><b>Quản lý thực đơn</b></h3></a>
+                        </li>
+                        <li class="nav-item col-3">
+                            <a style="color: #3E4063;" class="nav-link" href="#"><h3><b>Quản lý phiếu nhập hàng</b></h3></a>
+                        </li>
+                        <li class="nav-item col-3">
+                            <a style="color: #3E4063;" class="nav-link" href="#"><h3><b>Quản lý hóa đơn</b></h3></a>
+                        </li>
+                    </ul>
+            </div>
+        </nav>
+        
+        <div style="background-color: #3E4063;">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

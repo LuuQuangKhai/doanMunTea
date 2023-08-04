@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MunTea.Models.ChucVu>
+
+@{
+    ViewBag.Title = "HienDanhSach";
+    Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
+}
+
+<h2 style="text-align:center;color:beige;">Danh sách chức vụ</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "Them", "ChucVu", new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th style="color:beige">
+            Mã chức vụ
+        </th>
+        <th style="color:beige">
+            Tên chức vụ
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="color:beige">
+            @Html.DisplayFor(modelItem => item.MaChucVu)
+        </td>
+        <td style="color:beige">
+            @Html.DisplayFor(modelItem => item.TenChucVu)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Sua", "ChucVu", new { machucvu = item.MaChucVu }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Chi tiết", "ChiTiet", "ChucVu", new { machucvu = item.MaChucVu }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Xóa", "Xoa", new { machucvu = item.MaChucVu }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>   
+}
+
+</table>

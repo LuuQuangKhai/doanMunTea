@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
+}
+
+<h2 style="text-align:center; color:red;">Không thể xóa!</h2>
+<h4 style="text-align:center; color:red;">@ViewBag.thongbao</h4>
+<div>
+    @Html.ActionLink("Trở về", "HienDanhSach", "ChucVu", new { @class = "btn btn-primary" })
+</div>
