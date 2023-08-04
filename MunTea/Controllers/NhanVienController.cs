@@ -69,5 +69,88 @@ namespace MunTea.Controllers
                 return RedirectToAction("HienDanhSach", "NhanVien");
             }
         }
+
+        public ActionResult Xoa(int manhanvien)
+        {
+            NhanVien nhanvien = data.NhanViens.FirstOrDefault(t => t.MaNhanVien == manhanvien);
+
+            if (nhanvien.TinhTrangHoaDons.Count == 0 && nhanvien.PhieuNhapHangs.Count == 0)
+            {
+                data.NhanViens.DeleteOnSubmit(nhanvien);
+                data.SubmitChanges();
+                return RedirectToAction("HienDanhSach", "NhanVien");
+            }
+            ViewBag.thongbao = "Còn dữ liệu của nhân viên trong phiếu nhập hàng và tình trạng hóa đơn!";
+            return View();
+        }
+
+        public ActionResult ChiTiet(int manhanvien)
+        {
+            NhanVien nhanvien = data.NhanViens.FirstOrDefault(t => t.MaNhanVien == manhanvien);
+            return View(nhanvien);
+        }
+
+        [HttpGet]
+        public ActionResult Sua(int manhanvien)
+        {
+            NhanVien nhanvien = data.NhanViens.FirstOrDefault(t => t.MaNhanVien == manhanvien);
+            ViewBag.machucvu = new SelectList(data.ChucVus.ToList().OrderBy(n => n.TenChucVu), "MaChucVu", "TenChucVu");
+            ViewBag.chucvuchon = nhanvien.MaChucVu;
+            return View(nhanvien);
+        }
+
+        [HttpPost]
+        public ActionResult Sua(NhanVien nhanvien, HttpPostedFileBase fileupload)
+        {
+            ViewBag.machucvu = new SelectList(data.ChucVus.ToList().OrderBy(n => n.TenChucVu), "MaChucVu", "TenChucVu");
+            NhanVien tim = data.NhanViens.FirstOrDefault(t => t.MaNhanVien == nhanvien.MaNhanVien);
+            ViewBag.chucvuchon = tim.MaChucVu;
+            if (tim == null)
+            {
+                ViewBag.thongbao = "Mã nhân viên không tồn tại!";
+                return View(nhanvien);
+            }
+            if (fileupload == null)
+            {
+                tim.MatKhau = nhanvien.MatKhau;
+                tim.TenNhanVien = nhanvien.TenNhanVien;
+                tim.SDT = nhanvien.SDT;
+                tim.GioiTinh = nhanvien.GioiTinh;
+                tim.NoiSinh = nhanvien.NoiSinh;
+                tim.MaChucVu = nhanvien.MaChucVu;
+                // lưu vào cơ sở dữ liệu
+                data.SubmitChanges();
+                return RedirectToAction("HienDanhSach", "NhanVien");
+            }
+            //thêm vào cơ sở dữ liệu
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    // lưu tên file * bổ sung thư viện System.IO
+                    var tenFile = Path.GetFileName(fileupload.FileName);
+                    // lưu đường dẫn của file
+                    var duongdan = Path.Combine(Server.MapPath("~/HinhAnh/NhanVien"), tenFile);
+
+                    if (System.IO.File.Exists(duongdan))
+                        ViewBag.thongbao = "Hình ảnh đã tồn tại!";
+                    else
+                    {
+                        // Lưu hình ảnh vào đường dẫn
+                        fileupload.SaveAs(duongdan);
+                    }
+                    tim.MatKhau = nhanvien.MatKhau;
+                    tim.TenNhanVien = nhanvien.TenNhanVien;
+                    tim.SDT = nhanvien.SDT;
+                    tim.GioiTinh = nhanvien.GioiTinh;
+                    tim.NoiSinh = nhanvien.NoiSinh;
+                    tim.HinhAnh = tenFile;
+                    tim.MaChucVu = nhanvien.MaChucVu;
+                    // lưu vào cơ sở dữ liệu
+                    data.SubmitChanges();
+                }
+                return RedirectToAction("HienDanhSach", "NhanVien");
+            }
+        }
     }
 }

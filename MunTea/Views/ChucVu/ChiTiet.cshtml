@@ -4,25 +4,26 @@
     ViewBag.Title = "ChiTiet";
     Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
 }
+<h2 style="color:beige;text-align:center;">Chi tiết nhân viên</h2>
 
-<h2 style ="color:beige;text-align:center;">Chi tiết chức vụ</h2>
+<form>
+    <h4 style="color:beige;text-align:center;">Chức vụ</h4>
+    <div class="form-row">
+        <div class="col-sm-6 form-group">
+            <label style="color:beige">Mã chức vụ</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.MaChucVu)
+            </a>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label style="color:beige"> Tên chức vụ</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.TenChucVu)
+            </a>
+        </div>
+    </div>
 
-<fieldset>
-    <legend style="color:beige;text-align:center;">Chức vụ</legend>
-    <div class="display-label" style="color:beige">
-        Mã chức vụ:
-    </div>
-    <div class="display-field" style="color:beige">
-        @Html.DisplayFor(model => model.MaChucVu)
-    </div>
-    <div class="display-label" style="color:beige">
-        Tên chức vụ:
-    </div>
-    <div class="display-field" style="color:beige">
-        @Html.DisplayFor(model => model.TenChucVu)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Sửa", "Sua", "ChucVu", new { machucvu = @Model.MaChucVu }, new { @class = "btn btn-warning" }) |
-    @Html.ActionLink("Trở về", "HienDanhSach", "ChucVu", new { @class = "btn btn-primary" })
-</p>
+    <p>
+        @Html.ActionLink("Sửa", "Sua", "ChucVu", new { machucvu = @Model.MaChucVu }, new { @class = "btn btn-warning" }) |
+        @Html.ActionLink("Trở về", "HienDanhSach", "ChucVu", new { @class = "btn btn-primary" })
+    </p>

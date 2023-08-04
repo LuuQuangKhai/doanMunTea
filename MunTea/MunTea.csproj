@@ -199,6 +199,9 @@
     </None>
     <Content Include="Views\NhanVien\HienDanhSach.cshtml" />
     <Content Include="Views\NhanVien\Them.cshtml" />
+    <Content Include="Views\NhanVien\Xoa.cshtml" />
+    <Content Include="Views\NhanVien\ChiTiet.cshtml" />
+    <Content Include="Views\NhanVien\Sua.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

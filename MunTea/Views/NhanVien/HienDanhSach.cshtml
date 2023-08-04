@@ -67,9 +67,9 @@
             @Html.DisplayFor(modelItem => item.ChucVu.TenChucVu)
         </td>
         <td>
-            @Html.ActionLink("Sửa", "Sua", "NhanVien", new { machucvu = item.MaChucVu }, new { @class = "btn btn-warning" }) |
-            @Html.ActionLink("Chi tiết", "ChiTiet", "NhanVien", new { machucvu = item.MaChucVu }, new { @class = "btn btn-primary" }) |
-            @Html.ActionLink("Xóa", "Xoa", "NhanVien", new { machucvu = item.MaChucVu }, new { @class = "btn btn-danger" })
+            @Html.ActionLink("Sửa", "Sua", "NhanVien", new { manhanvien = item.MaNhanVien }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Chi tiết", "ChiTiet", "NhanVien", new { manhanvien = item.MaNhanVien }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Xóa", "Xoa", "NhanVien", new { manhanvien = item.MaNhanVien }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

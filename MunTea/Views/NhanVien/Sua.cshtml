@@ -1,31 +1,33 @@
 ﻿@model MunTea.Models.NhanVien
 
 @{
-    ViewBag.Title = "Them";
+    ViewBag.Title = "Sua";
     Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
 }
 
+<h2 style="text-align:center; color:beige;">Sửa nhân viên</h2>
 
-<h2 style="text-align:center; color:beige;">Thêm nhân viên</h2>
-
-@using (Html.BeginForm("Them", "NhanVien", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Sua", "NhanVien", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     <form>
         <h4 style="color:beige">Nhập thông tin nhân viên</h4>
-            
+        <div class="form-group">
+            <label for="mymanhanvien" style="color:beige">Mã nhân viên</label>
+            <input value="@Model.MaNhanVien" type="number" class="form-control" name="MaNhanVien" id="mymanhanvien" placeholder="Mã nhân viên">
+        </div>
         <div class="form-group">
             <label for="mymatkhau" style="color:beige">Mật khẩu</label>
-            <input type="number" class="form-control" name="MatKhau" id="mymatkhau" placeholder="Mật khẩu">
+            <input value="@Model.MatKhau" type="text" class="form-control" name="MatKhau" id="mymatkhau" placeholder="Mật khẩu">
         </div>
 
         <div class="form-row">
             <div class="form-group col-sm-6">
                 <label style="color:beige" for="mytenhanvien">Tên nhân viên</label>
-                <input type="text" class="form-control" id="mytenhanvien" placeholder="Tên nhân viên" name="TenNhanVien">
+                <input value="@Model.TenNhanVien" type="text" class="form-control" id="mytenhanvien" placeholder="Tên nhân viên" name="TenNhanVien">
             </div>
             <div class="form-group col-sm-6">
                 <label style="color:beige" for="mysodienthoai">Số điên thoại</label>
-                <input type="text" class="form-control" id="mysodienthoai" placeholder="Số điện thoại" name="SDT">
+                <input value="@Model.SDT" type="text" class="form-control" id="mysodienthoai" placeholder="Số điện thoại" name="SDT">
             </div>
         </div>
 
@@ -39,7 +41,7 @@
             </div>
             <div class="form-group col-sm-6">
                 <label style="color:beige" for="mynoisinh">Nơi sinh</label>
-                <input type="text" class="form-control" id="mynoisinh" placeholder="Nơi sinh" name="NoiSinh">
+                <input value="@Model.NoiSinh" type="text" class="form-control" id="mynoisinh" placeholder="Nơi sinh" name="NoiSinh">
             </div>
         </div>
 
@@ -47,19 +49,22 @@
             <div class="form-group col-sm-3">
                 <label style="color:beige" for="myhinhanh">Hình ảnh</label>
                 <input class="form-control" id="myhinhanh" type="file" name="fileupload" />
-                @ViewBag.thongbao
             </div>
             <div class="form-group col-sm-9">
                 <label style="color:beige">Chức vụ</label>
                 @Html.DropDownList("machucvu",null, htmlAttributes: new { @class = "form-control" })
             </div>
         </div>
+        @if (ViewBag.thongbao != null)
+        {
+            <p style="color:red">*@ViewBag.thongbao</p>
+        }
         <p>
-            <button type="submit" class="btn btn-success">Thêm nhân viên</button>
+            <button type="submit" class="btn btn-success">Lưu nhân viên</button>
         </p>
     </form>
 }@{Html.EndForm();}
 
 <div>
     @Html.ActionLink("Trở về", "HienDanhSach", "NhanVien", new { @class = "btn btn-primary" })
-</div>  
+</div>

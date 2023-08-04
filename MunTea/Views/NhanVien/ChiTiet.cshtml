@@ -1,0 +1,67 @@
+﻿@model MunTea.Models.NhanVien
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/khungTrangQuanLy.cshtml";
+}
+<h2 style="color:beige;text-align:center;">Chi tiết nhân viên</h2>
+
+<form>
+    <h4 style="color:beige;text-align:center;">Nhân viên</h4>
+    <div class="form-row" >
+        <div class="col-sm-6 form-group">
+            <label style="color:beige">Mã nhân viên</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.MaNhanVien)
+            </a>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label style="color:beige">Mật khẩu</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.MatKhau)
+            </a>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-6 form-group">
+            <label style="color:beige">Tên nhân viên</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.TenNhanVien)
+            </a>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label style="color:beige">Số điện thoại</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.SDT)
+            </a>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-4 form-group">
+            <label style="color:beige"> Giới tính</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.GioiTinh)
+            </a>
+        </div>
+        <div class="col-sm-4 form-group">
+            <label style="color:beige">Nơi sinh</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.NoiSinh)
+            </a>
+        </div>
+        <div class="col-sm-4 form-group">
+            <label style="color:beige">Chức vụ</label>
+            <a class="form-control">
+                @Html.DisplayFor(model => model.ChucVu.TenChucVu)
+            </a>
+        </div>
+    </div>
+    <div>
+        <label style="color:beige">Hình ảnh</label>
+        <img class="form-control" src="/HinhAnh/NhanVien/@Model.HinhAnh" style="width:auto;height:200px">
+    </div>
+</form>
+<p>
+    @Html.ActionLink("Sửa", "Sua", "NhanVien", new { manhanvien = @Model.MaNhanVien }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Trở về", "HienDanhSach", "NhanVien", new { @class = "btn btn-primary" })
+</p>
