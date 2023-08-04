@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "HienThiSanPham";
+    Layout = "~/Views/Shared/khungTrangKhachHang.cshtml";
+}
+@using MunTea.Models;
+@model List<ThucDon>
+
+<div class="container">
+    <div class="row">
+        @foreach(var i in Model)
+        {
+            <div class="col-4 text-center btn btn-outline-light" >
+                <img class="w-75" src="/HinhAnh/ThucDon/@i.HinhAnh" />
+                <p><b>@i.TenThucDon</b></p>
+                <p style="color:orange;">@i.GiaTien VNĐ</p>
+                <p>Size: @i.Size</p>
+                <a class="btn btn-dark" href="/Home/ThemGioHang/@i.MaThucDon" >Thêm vào giỏ</a>
+            </div>
+        }
+    </div>
+</div>

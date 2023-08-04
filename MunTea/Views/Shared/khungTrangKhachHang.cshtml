@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/bootstrap/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+        <nav class="nav navbar-expand-sm" style="background-color: #F4F5F1;">
+            <a class="navbar-brand" href="#">
+                <img src="~/HinhAnh/LogoMUNTEA.png" style="width:150px;height:150px; margin:0px 20px;" />
+            </a>
+            <div class="container-fluid" style="margin:50px 0px">
+                <ul class="navbar-nav" style="text-align:left;">
+                    <li class="nav-item col-3">
+                        <a style="color: #3E4063;" class="nav-link" href="/Home/HienThiSanPham"><h3><b>Trang chủ</b></h3></a>
+                    </li>
+                    <li class="nav-item col-3">
+                        <a style="color: #3E4063;" class="nav-link" href="#"><h3><b>Thực đơn</b></h3></a>
+                    </li>
+                    <li class="nav-item col-3">
+                        @{
+                            string my = Session["MyTenTaiKhoan"] as string;
+                            if (!string.IsNullOrEmpty(my))
+                            {
+                                <a style="color: #3E4063;" class ="nav-link"><h3><b>Xin chào:@my</b></h3></a>
+                            }
+                            else
+                            {
+                                <a style="color: #3E4063;" class="nav-link" href="/Home/DangNhap"><h3><b>Đăng nhập</b></h3></a>
+                            }
+                        }
+                        
+                    </li>
+                    <li class="nav-item col-3">
+                        <a style="color: #3E4063;" class="nav-link" href="/Home/GioHang"><h3><b>Giỏ hàng</b></h3></a>
+                    </li>
+                </ul>
+                
+            </div>
+        </nav>
+
+        <div style="background-color: #3E4063;">
+            @RenderBody()
+        </div>
+
+        <footer style="background-color: #F4F5F1;">
+            <p><b>Trà trái cây Mun Tea</b></p>
+            <p>Chuyên các loại trà trái cây tươi và cà phê</p>
+            <p>Liên hệ: 0969743577</p>
+            <p>Địa chỉ: 105/27/9, Đường 59, Phường 14, Quận Gò Vấp, TP.HCM</p>
+        </footer>
+    </div>
+</body>
+</html>

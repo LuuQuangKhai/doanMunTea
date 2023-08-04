@@ -1,0 +1,73 @@
+﻿@model MunTea.Models.KhachHang
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/khungTrangKhachHang.cshtml";
+}
+
+<h2>Đăng ký</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset style="color:beige">
+        <legend>KhachHang</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TenKhachHang)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenKhachHang)
+            @Html.ValidationMessageFor(model => model.TenKhachHang)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TenTaiKhoan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenTaiKhoan)
+            @Html.ValidationMessageFor(model => model.TenTaiKhoan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MatKhau)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MatKhau)
+            @Html.ValidationMessageFor(model => model.MatKhau)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NgaySinh)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgaySinh)
+            @Html.ValidationMessageFor(model => model.NgaySinh)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GioiTinh)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GioiTinh)
+            @Html.ValidationMessageFor(model => model.GioiTinh)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SDT)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SDT)
+            @Html.ValidationMessageFor(model => model.SDT)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

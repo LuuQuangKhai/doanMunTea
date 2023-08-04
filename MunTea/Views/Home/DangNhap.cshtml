@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/khungTrangKhachHang.cshtml";
+}
+
+<form action="/Home/DangNhap" method="post">
+    <h4 style="color:beige;text-align:center;">Đăng nhập</h4>
+    <div class="form-row">
+        <div class="col-sm-4 form-group">
+
+        </div>
+        <div class="col-sm-4 form-group">
+            <div class="form-group">
+                <label style="color:beige">Tên tài khoản</label>
+                <a class="form-control">
+                    <input type="text" value="@ViewBag.ttk" class="form-control" placeholder="Tên tài khoản" name="tentaikhoan">
+                </a>
+            </div>
+            <div class="form-group">
+                <label style="color:beige">Mật khẩu</label>
+                <a class="form-control">
+                    <input type="text" class="form-control" placeholder="Mật khẩu" name="matkhau">
+                </a>
+                <a style="color:red">
+                    *@ViewBag.thongbao
+                </a>
+                <p style="text-align:center">
+                    <button type="submit" class="btn btn-success">Đăng nhâp</button>
+                    <a class="btn btn-primary" href="/Home/DangKy" >Đăng ký tài khoản</a>
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-4 form-group">
+
+        </div>
+    </div>
+</form>
